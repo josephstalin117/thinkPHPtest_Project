@@ -9,6 +9,7 @@ class RegiAction extends Action {
     public function addUser() {
         $dmUser = M('user');
         $dmContent=M('content');
+//        $dmArticle=M('article');
         $Data['username'] = $_POST['username'];
         $Data['password'] = $_POST['password'];
         $name=$Data['username'];
@@ -21,9 +22,6 @@ class RegiAction extends Action {
                 $this->error("用户名已存在");
             } else {
                 $dmUser->add($Data);
-                $content['id']=$dmUser->where(array("username"=>$name))->getField('id');
-                dump($content);
-                $dmContent->add($content);
                 $this->success("success", U('Index/index'));
             }
         }

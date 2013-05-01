@@ -10,7 +10,7 @@
         <meta name="author" content=""><!-- Le styles -->
         <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <style type="text/css">
-        body {
+body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
         </style>
@@ -31,7 +31,7 @@
                                 <a href="#">Home</a>
                             </li>
                             <li>
-                                <a href="<?php echo U('Arti/arti');?>">Article</a>
+                                <a href="<?php echo U('Arti/arti');?>">New Article</a>
                             </li>
                             <li>
                                 <a href="<?php echo U('Login/loginOut');?>">SignOut</a>
@@ -45,12 +45,12 @@
             <div class="hero-unit">
                 <div class="row">
                     <h2>
-                        <?php echo ($vo['title']); ?>
+                        Blog List
                     </h2>
                 </div>
                 <div class="row">
                     <p>
-                        <?php echo ($vo['content']); ?>
+                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><strong><?php echo ($i); ?></strong>.<a href="../Arti/showArti?Aid=<?php echo ($vo["Aid"]); ?>"><?php echo ($vo["Title"]); ?></a><br/><?php endforeach; endif; else: echo "" ;endif; ?>
                     </p>
                 </div>
             </div>

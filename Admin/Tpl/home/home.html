@@ -10,7 +10,7 @@
         <meta name="author" content=""><!-- Le styles -->
         <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <style type="text/css">
-        body {
+body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
         </style>
@@ -31,7 +31,7 @@
                                 <a href="#">Home</a>
                             </li>
                             <li>
-                                <a href="{:U('Arti/arti')}">Article</a>
+                                <a href="{:U('Arti/arti')}">New Article</a>
                             </li>
                             <li>
                                 <a href="{:U('Login/loginOut')}">SignOut</a>
@@ -45,12 +45,14 @@
             <div class="hero-unit">
                 <div class="row">
                     <h2>
-                        {$vo['title']}
+                        Blog List
                     </h2>
                 </div>
                 <div class="row">
                     <p>
-                        {$vo['content']}
+                        <volist name="list" id="vo">
+                            <strong>{$i}</strong>.<a href="../Arti/showArti?Aid={$vo.Aid}">{$vo.Title}</a><br/>
+                        </volist>
                     </p>
                 </div>
             </div>
