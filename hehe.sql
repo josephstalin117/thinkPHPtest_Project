@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 04 月 29 日 09:47
+-- 生成日期: 2013 年 05 月 01 日 14:00
 -- 服务器版本: 5.5.20
 -- PHP 版本: 5.3.10
 
@@ -23,24 +23,50 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `hehe_article`
+--
+
+CREATE TABLE IF NOT EXISTS `hehe_article` (
+  `Aid` int(30) NOT NULL AUTO_INCREMENT,
+  `id` int(30) NOT NULL,
+  `Title` char(30) NOT NULL,
+  `Date` int(11) NOT NULL,
+  PRIMARY KEY (`Aid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+--
+-- 转存表中的数据 `hehe_article`
+--
+
+INSERT INTO `hehe_article` (`Aid`, `id`, `Title`, `Date`) VALUES
+(21, 1, '你好', 2013),
+(20, 1, 'hehe', 2013),
+(19, 2, '窝巢', 2013),
+(18, 2, 'hehe', 2013),
+(17, 2, '123', 2013);
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `hehe_content`
 --
 
 CREATE TABLE IF NOT EXISTS `hehe_content` (
-  `id` int(11) NOT NULL,
-  `title` char(32) NOT NULL,
-  `content` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `Aid` int(30) NOT NULL,
+  `Content` text NOT NULL,
+  PRIMARY KEY (`Aid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `hehe_content`
 --
 
-INSERT INTO `hehe_content` (`id`, `title`, `content`) VALUES
-(1, 'hehe', 'fuck '),
-(2, '呵呵呵', '改一下～'),
-(12, '123', '123');
+INSERT INTO `hehe_content` (`Aid`, `Content`) VALUES
+(21, 'hello world'),
+(20, '123'),
+(19, '肢体～'),
+(18, 'wakaka'),
+(17, '1234');
 
 -- --------------------------------------------------------
 
@@ -53,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `hehe_user` (
   `username` char(30) NOT NULL,
   `password` char(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- 转存表中的数据 `hehe_user`
@@ -62,7 +88,9 @@ CREATE TABLE IF NOT EXISTS `hehe_user` (
 INSERT INTO `hehe_user` (`id`, `username`, `password`) VALUES
 (1, 'admin', '123456'),
 (2, 'josephstalin', '123456'),
-(12, '1', '1');
+(15, 'feige', '123'),
+(14, 'fangge', '123'),
+(13, 'chigix', 'hehe');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
