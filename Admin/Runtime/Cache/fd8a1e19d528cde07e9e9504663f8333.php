@@ -48,11 +48,24 @@ body {
                         Blog List
                     </h2>
                 </div>
+                <table class="table table-striped">
                 <div class="row">
+                    <tr>
+                        <th>number</th>
+                        <th>title</th>
+                        <th>delete</th>
+                    </tr>
                     <p>
-                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><strong><?php echo ($i); ?></strong>.<a href="../Arti/showArti?Aid=<?php echo ($vo["Aid"]); ?>"><?php echo ($vo["Title"]); ?></a><br/><?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                                <td><strong><?php echo ($i); ?></strong></td>
+                                <td><a href="../Arti/showArti?Aid=<?php echo ($vo["Aid"]); ?>"><?php echo ($vo["Title"]); ?></a></td><br/>
+                                <td><a href="../Home/delete?Aid=<?php echo ($vo["Aid"]); ?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                     </p>
+                        
+                       
                 </div>
+                <table class="table table-striped">
             </div>
             <p>
                 Welcome <?php echo ($vn['username']); ?><br>

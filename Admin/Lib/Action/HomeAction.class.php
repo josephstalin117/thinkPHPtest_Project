@@ -12,7 +12,13 @@ class HomeAction extends Action {
         $this->assign('list', $list);
         $this->display();
     }
-
+    public function delete(){
+        $userArticle=M("Article");
+        $userContent=M("Content");
+        $Aid=$_GET["Aid"];
+        $userArticle->where(array("Aid"=>$Aid))->delete();
+        $userContent->where(array("Aid"=>$Aid))->delete();
+        $this->success("delete success",U('Home/home'));
+    }
 }
-
 ?>
