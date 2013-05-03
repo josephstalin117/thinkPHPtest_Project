@@ -10,5 +10,11 @@ return array(
     'DB_PWD' => '', // 密码
     'DB_PORT' => 3306, // 端口
     'DB_PREFIX' => 'hehe_', // 数据库表前缀 
+    
+    //表单令牌
+    'TOKEN_ON'=>TRUE,
+    'TOKEN_NAME'=>'_hash_',
+    'TOKEN_TYPE'=>'md5',
+    'TOKEN_RESET'=>TRUE,
 );
 ?>

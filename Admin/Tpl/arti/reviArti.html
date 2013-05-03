@@ -32,9 +32,6 @@ body {
 							<li>
 								<a href="{:U('Home/home')}">Back</a>
 							</li>
-							<li>
-								<a href="../Arti/reviArti?Aid={$Aid}">Revise Article</a>
-							</li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -43,10 +40,18 @@ body {
 		<div class="container">
 			<div class="hero-unit">
 				<div class="row">
+					<form method="post" action="../Arti/recoArti?Aid={$Aid}">
 						<!-- <fieldset> -->
-						<legend>Article</legend> 
-						<h4>{$title}</h4>
-							<p>{$content}</p>
+							<legend>Article</legend> 
+							<label>Title</label> 
+							<input type="text" placeholder="Title" name="title" value="{$title}">
+							 <span class="help-block">Your mind</span> 
+							 <textarea rows="3" class="row span4" name="content">{$content}</textarea>
+							 <div class="">
+							 <button type="submit" class="btn-large btn btn-primary offset1">Submit</button>
+							</div>
+						<!-- </fieldset> -->
+					</form>
 				</div>
 			</div>
 		</div>

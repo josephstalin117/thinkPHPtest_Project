@@ -21,6 +21,7 @@ class RegiAction extends Action {
             if ($dmUser->where(array("username"=>$name))->find()) {
                 $this->error("用户名已存在");
             } else {
+                $dmUser->create();
                 $dmUser->add($Data);
                 $this->success("success", U('Index/index'));
             }
