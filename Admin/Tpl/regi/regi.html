@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
          <link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet">
-            <script src="__PUBLIC__/js/jquery.min.js"></script>
+            <script src="__PUBLIC__/js/jquery.min.js" type="text/javascript"></script>
             <script src="__PUBLIC__/js/bootstrap.min.js"></script>
             <style type="text/css">
       body {
