@@ -64,6 +64,13 @@ and open the template in the editor.
       						<input type="password" id="inputPassword" placeholder="Password" name="password">
       					</div>
   				</div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Verify</label>
+            <div class="controls">
+              <input type="text" id="verify" name="verify" placeholder="Verify">
+              <img src="_APP_/Public/verify/" />
+            </div>
+          </div>
   				<div class="control-group">
     				<div class="controls">
       					<button type="submit" class="btn">Registered</button>
