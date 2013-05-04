@@ -59,7 +59,7 @@ body {
                         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                                 <td><strong><?php echo ($i); ?></strong></td>
                                 <td><a href="../Arti/showArti?Aid=<?php echo ($vo["Aid"]); ?>"><?php echo ($vo["Title"]); ?></a></td><br/>
-                                <td><a href="../Home/delete?Aid=<?php echo ($vo["Aid"]); ?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                                <td><a href="#myModal" role="button" class="btn btn-danger" data-toggle="modal">Delete</a></td>
                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                     </p>
                         
@@ -71,7 +71,20 @@ body {
                 Welcome <?php echo ($vn['username']); ?><br>
                 This is your Blog
             </p>
-        </div><!-- /container -->
+        </div>
+        <div id="myModal" class="modal hide fade">
+            <div class="modal-header">
+                <h3>warning</h3>
+            <div>
+            <div class="modal-body">
+                <p>Are you sure to delete this article</p>
+            </div>
+            <div class="modal-footer">
+                <a href="<?php echo U('Home/home');?>" class="btn">close</a>
+                <a href="../Home/delete?Aid=<?php echo ($vo["Aid"]); ?>" class="btn btn-primary">OK</a>
+            </div>
+        </div>
+        <!-- /container -->
         <!-- Le javascript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
