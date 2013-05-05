@@ -9,7 +9,7 @@ class LoginAction extends Action {
         }
         $User = M("user");
         $condition['username'] = $_SESSION['username'];
-        $condition['password'] = $_SESSION['password'];
+        $condition['password'] = md5($_SESSION['password']);
         $list = $User->where($condition)->select();
         if (count($list) == 0) {
             $this->clearLogin();
@@ -26,7 +26,7 @@ class LoginAction extends Action {
         }
         $url = U('Home/home');
         $map['username'] = $_POST['username'];
-        $map['password'] = $_POST['password'];
+        $map['password'] = md5($_POST['password']);
         $authInfo = $dmUser->where($map)->find();
         if (FALSE == $authInfo) {
             $this->error("error");

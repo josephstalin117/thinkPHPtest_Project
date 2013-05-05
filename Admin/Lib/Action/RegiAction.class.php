@@ -16,7 +16,7 @@ class RegiAction extends Action {
         $dmContent = M('content');
 //        $dmArticle=M('article');
         $Data['username'] = $_POST['username'];
-        $Data['password'] = $_POST['password'];
+        $Data['password'] = md5($_POST['password']);
         $name = $Data['username'];
         if (empty($Data['username'])) {
             $this->error("username error");
@@ -27,11 +27,15 @@ class RegiAction extends Action {
                 $this->error("用户名已存在");
             } else {
                 if (!$dmUser->autoCheckToken($_POST)) {
-                    $this->error("Fuck you!!");
+                    $this->error("please reflash html");
                 } else {
-                    $dmUser->create();
-                    $dmUser->add($Data);
-                    $this->success("success", U('Index/index'));
+                    if (md5($_POST['verify']) != $_SESSION['verify']) {
+                        $this->error("verify error");
+                    } else {
+                        $dmUser->create();
+                        $dmUser->add($Data);
+                        $this->success("success", U('Index/index'));
+                    }
                 }
             }
         }
